@@ -1,0 +1,87 @@
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header">
+          <h3 class="mb-0">User Registration</h3>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+              <label for="name" class="form-label">Full Name</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                id="name" 
+                formControlName="name"
+                [ngClass]="{'is-invalid': userForm.get('name')?.invalid && userForm.get('name')?.touched}">
+              <div class="invalid-feedback" *ngIf="userForm.get('name')?.errors?.['required']">
+                Full name is required
+              </div>
+              <div class="invalid-feedback" *ngIf="userForm.get('name')?.errors?.['minlength']">
+                Name must be at least 3 characters
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input 
+                type="text" 
+                class="form-control" 
+                id="username" 
+                formControlName="username"
+                [ngClass]="{'is-invalid': userForm.get('username')?.invalid && userForm.get('username')?.touched}">
+              <div class="invalid-feedback" *ngIf="userForm.get('username')?.errors?.['required']">
+                Username is required
+              </div>
+              <div class="invalid-feedback" *ngIf="userForm.get('username')?.errors?.['minlength']">
+                Username must be at least 3 characters
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input 
+                type="email" 
+                class="form-control" 
+                id="email" 
+                formControlName="email"
+                [ngClass]="{'is-invalid': userForm.get('email')?.invalid && userForm.get('email')?.touched}">
+              <div class="invalid-feedback" *ngIf="userForm.get('email')?.errors?.['required']">
+                Email is required
+              </div>
+              <div class="invalid-feedback" *ngIf="userForm.get('email')?.errors?.['email']">
+                Please enter a valid email
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input 
+                type="password" 
+                class="form-control" 
+                id="password" 
+                formControlName="password"
+                [ngClass]="{'is-invalid': userForm.get('password')?.invalid && userForm.get('password')?.touched}">
+              <div class="invalid-feedback" *ngIf="userForm.get('password')?.errors?.['required']">
+                Password is required
+              </div>
+              <div class="invalid-feedback" *ngIf="userForm.get('password')?.errors?.['minlength']">
+                Password must be at least 6 characters
+              </div>
+            </div>
+
+            <button 
+              type="submit" 
+              class="btn btn-primary"
+              [disabled]="userForm.invalid">
+              Register
+            </button>
+          </form>
+
+          <button type="button" class="btn btn-secondary mt-3" (click)="getAllUsers()"> Get All Users </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
