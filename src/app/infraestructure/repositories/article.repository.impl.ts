@@ -30,6 +30,16 @@ export class ArticleRepositoryImpl implements ArticleRepository {
   }
 
   deleteArticle(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+    return this.http.patch<void>(`${this.apiUrl}/delete/${id}`, {});
   }
+
+  enableArticle(id: number): Observable<void> { // Nuevo
+    return this.http.patch<void>(`${this.apiUrl}/enable/${id}`, {});
+  }
+
+  disableArticle(id: number): Observable<void> { // Nuevo
+    return this.http.patch<void>(`${this.apiUrl}/disable/${id}`, {});
+  }
+
+  
 }

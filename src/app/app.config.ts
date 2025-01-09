@@ -7,17 +7,17 @@ import { ArticleRepositoryImpl } from './infraestructure/repositories/article.re
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { PurchaseRepository } from './domain/repositories/purchase.repository';
 import { PurchaseRepositoryImpl } from './infraestructure/repositories/purchase.repository.impl';
+import { BsModalService } from 'ngx-bootstrap/modal';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     { provide: ArticleRepository, useClass: ArticleRepositoryImpl },
     { provide: PurchaseRepository, useClass: PurchaseRepositoryImpl },
-
-
     provideHttpClient(withFetch(), withInterceptors([])),
     provideRouter(routes),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    BsModalService
     
   ],
 };

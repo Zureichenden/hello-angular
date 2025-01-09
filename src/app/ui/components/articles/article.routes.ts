@@ -9,6 +9,7 @@ export const ARTICLE_ROUTES: Routes = [
     children:[
        {path:'',component: ListArticleComponent },     
        {path:'create',component: CreateArticleComponent },  
+       { path: 'edit/:id', component: CreateArticleComponent },
     ]
   }
 

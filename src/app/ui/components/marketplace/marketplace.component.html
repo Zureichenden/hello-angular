@@ -61,7 +61,7 @@
         <div *ngIf="!isLoading && !error" class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4">
           <div *ngFor="let article of filteredArticles" class="col">
             <div class="card h-100">
-              <img src="/placeholder.svg?height=200&width=200" class="card-img-top" [alt]="article.name">
+              <img [src]="article.imageUrl" class="card-img-top" [alt]="article.name">
               <div class="card-body">
                 <h5 class="card-title">{{ article.name }}</h5>
                 <p class="card-text">{{ article.description }}</p>

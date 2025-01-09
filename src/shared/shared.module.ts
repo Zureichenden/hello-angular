@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { AlertModule } from 'ngx-bootstrap/alert';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [],
@@ -10,12 +11,14 @@ import { AlertModule } from 'ngx-bootstrap/alert';
     CommonModule,
     TooltipModule.forRoot(),
     ButtonsModule.forRoot(),
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
+    ModalModule.forRoot()
   ],
   exports: [
     TooltipModule,
     ButtonsModule,
-    AlertModule
+    AlertModule,
+    ModalModule
   ]
 })
 export class SharedModule { }
