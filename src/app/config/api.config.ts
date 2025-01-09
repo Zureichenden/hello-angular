@@ -3,6 +3,7 @@ export const API_CONFIG = {
   endpoints: {
     auth: '/auth',
     articles: '/articles',
+    purchases: '/purchases',
     users: '/users',
     roles: '/roles',
     menus: '/menus'

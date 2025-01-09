@@ -4,6 +4,7 @@ import { GetAllArticleUseCase } from 'app/domain/usecases/articles';
 import { CommonModule } from '@angular/common';
 import { Article } from 'app/domain/models/article.model';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-article',
@@ -20,7 +21,9 @@ export class ListArticleComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private getAllArticleUseCase: GetAllArticleUseCase
+    private getAllArticleUseCase: GetAllArticleUseCase,
+    private router: Router
+
   ) {
     this.articleForm = this.formBuilder.group({
       search: [''],
@@ -71,5 +74,10 @@ export class ListArticleComponent implements OnInit {
     this.articleForm.reset();
     this.getArticles();
   }
+
+  navigateToCreateArticle(): void {
+    this.router.navigate(['/articles/create']);
+  }
+
 }
 

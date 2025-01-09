@@ -1,7 +1,6 @@
-// login.component.ts
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import Swal from 'sweetalert2';  // Importar SweetAlert2
+import Swal from 'sweetalert2';  
 import { AuthService } from 'app/infraestructure/repositories/auth.repository.impl';
 import { Login } from '../../../domain/models/login.model';
 import { CommonModule } from '@angular/common';
@@ -32,12 +31,10 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       const loginData: Login = this.loginForm.value;
 
-      // Llamar al servicio para hacer login
       this.authService.login(loginData).subscribe(
         (response) => {
           console.log('Login successful:', response);
 
-          // Mostrar un SweetAlert con un mensaje de éxito
           Swal.fire({
             title: 'Success!',
             text: 'Login successful!',
@@ -48,7 +45,6 @@ export class LoginComponent implements OnInit {
         (error) => {
           console.error('Error during login:', error);
 
-          // Mostrar un SweetAlert con un mensaje de error
           Swal.fire({
             title: 'Error!',
             text: 'Invalid username or password.',

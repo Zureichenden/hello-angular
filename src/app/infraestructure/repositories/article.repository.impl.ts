@@ -18,7 +18,6 @@ export class ArticleRepositoryImpl implements ArticleRepository {
   }
 
   getArticles(params: any): Observable<Article[]> {
-    // Aquí se pasan los parámetros a la URL
     return this.http.get<Article[]>(this.apiUrl, { params });
   }
 

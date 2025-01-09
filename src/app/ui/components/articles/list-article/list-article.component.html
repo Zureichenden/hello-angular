@@ -4,9 +4,14 @@
       <h3 class="mb-0 fs-4">
         <i class="bi bi-list-ul me-2"></i>Lista de Artículos
       </h3>
-      <button class="btn btn-light" (click)="refreshArticles()">
-        <i class="bi bi-arrow-clockwise me-1"></i> Actualizar
-      </button>
+      <div>
+        <button class="btn btn-light" (click)="refreshArticles()">
+          <i class="bi bi-arrow-clockwise me-1"></i> Actualizar
+        </button>
+        <button class="btn btn-success ms-2" (click)="navigateToCreateArticle()">
+          <i class="bi bi-plus-circle me-1"></i> Nuevo Artículo
+        </button>
+      </div>
     </div>
 
     <div class="card-body">
