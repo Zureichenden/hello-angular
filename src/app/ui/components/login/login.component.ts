@@ -2,8 +2,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';  // Importar SweetAlert2
-import { AuthService } from '../services/auth.service';
-import { Login } from '../models/login.model';
+import { AuthService } from 'app/infraestructure/repositories/auth.repository.impl';
+import { Login } from '../../../domain/models/login.model';
 import { CommonModule } from '@angular/common';
 
 @Component({

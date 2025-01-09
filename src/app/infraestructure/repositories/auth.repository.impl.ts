@@ -1,14 +1,15 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Login } from '../models/login.model';
+import { Login } from 'app/domain/models/login.model'; 
+import { API_CONFIG } from 'app/config/api.config';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:5110/api/auth'; // Asegúrate de configurar tu endpoint
+  private apiUrl = API_CONFIG.baseUrl + API_CONFIG.endpoints.auth;
 
   constructor(private http: HttpClient) {}
 

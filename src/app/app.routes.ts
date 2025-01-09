@@ -1,9 +1,19 @@
 import { Routes } from '@angular/router';
-import { UserRegistrationComponent } from './component/user/user-registration/user-registration.component';
-import { LoginComponent } from './login/login.component'; 
 
 export const routes: Routes = [
-  { path: 'register', component: UserRegistrationComponent },
-  { path: 'login', component: LoginComponent },  // Agregar la ruta para el login
-  { path: '', redirectTo: '/login', pathMatch: 'full' }
+  {
+    path: 'auth',
+    loadChildren: () => import('../auth/auth.routes').then(m => m.AUTH_ROUTES)
+  },
+  {
+    path: 'users',
+    loadChildren: () => import('./ui/components/user/user.routes').then(m => m.USER_ROUTES)
+  },
+
+  {
+    path: 'articles',
+    loadChildren: () => import('./ui/components/articles/article.routes').then(m => m.ARTICLE_ROUTES)
+  },
+  
+  { path: '', redirectTo: '/auth/login', pathMatch: 'full' }
 ];
